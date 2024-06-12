@@ -1,0 +1,26 @@
+---
+title: "ELIDEK 4th call postdoc proposal"
+author: "Alexandros Rekkas"
+format: revealjs
+output-file: index.html
+---
+
+## Structure
+
+* Evaluation of clinical utility
+* Development of ensemble models
+* External deployment with recalibration
+
+## Clinical utility
+
+Treatments $t_1,\dots,t_K$ and outcomes $y_1,\dots y_L$
+
+$$
+b_{t_1t_2}=\sum_{i=1}^{L}w_id_i^{t_1t_2}
+$$
+
+$$
+b_{t_1\bullet} = \sum_{i\neq1}\sum_{j=1}^{L}{w_jd_j^{t_1t_i}}
+$$
+
+Decision is $$\text{argmax}\{b_{t_i\bullet} | i=1\dots,K\}$$
