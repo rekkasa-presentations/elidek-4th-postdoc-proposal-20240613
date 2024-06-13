@@ -1,5 +1,5 @@
 ---
-title: "ELIDEK 4th call postdoc proposal"
+title: "HFRI 4th call postdoc proposal"
 author: "Alexandros Rekkas"
 format: revealjs
 output-file: index.html
@@ -7,9 +7,61 @@ output-file: index.html
 
 ## Structure
 
-* Evaluation of clinical utility
-* Development of ensemble models
-* External deployment with recalibration
+* Clinical utility in OHDs^[OHD: observational healthcare database] with multiple treatment options
+* Risk-based approaches for BPMs^[BPM: benefit prediction model]
+in OHDs
+* Ensemble modeling for BPMs
+
+## Clinical utility in OHDs
+* Use decision curve analysis with multiple treatments^[Chalkou K, Vickers AJ, Pellegrini F, Manca A, Salanti G. Decision Curve Analysis for Personalized Treatment Choice between Multiple Options. Med Decis Making. 2023 Apr;43(3):337-349. doi: 10.1177/0272989X221143058.]
+
+* Use clinical trial emulation
+
+## Risk-based approaches
+
+* Compare risk-based models similar to simulation study^[Rekkas, A., Rijnbeek, P.R., Kent, D.M. et al. Estimating individualized treatment effects from randomized controlled trials: a simulation study to compare risk-based approaches. BMC Med Res Methodol 23, 74 (2023). https://doi.org/10.1186/s12874-023-01889-6]
+
+* Compare to state-of-the-art BPM
+
+* Compare external validity
+
+## Ensemble models
+
+* Evaluate ensemble BPM methods for all aspects (errors, prediction, utility)
+
+* Also compare single models
+
+* External validation
+
+* Recalibration (?)
+
+
+# Appendix
+
+## Clinical trial emulation
+
+Let $Y_i=0,1$ and $T_i=0, 1$. For predictions $\hat{p}(x_i)$ from a prediction model we make decisions $d(x_i)$ using cut-off $c$:
+
+$$d(x_i) = I(\hat{p}(x_i)>c)$$
+Need to estimate
+
+$$
+E\{Y_i(\text{used prediction})-Y_i(\text{standard of care})\}
+$$
+
+## Clinical trial emulation
+
+Observational setting:
+
+$$E\{Y_i(\text{used prediction})\}\neq E\{Y_i|\text{used prediction}\}$$
+Decompose $E\{Y_i(\text{used prediction})\}$:
+
+\begin{equation}
+\begin{aligned}
+P(\hat{p}(x_i) < c)\times E\{Y_i(0)|\hat{p}(x_i)<c\} &+ \\
+P(\hat{p}(x_i) > c)\times E\{Y_i(1)|\hat{p}(x_i)>c\}
+\end{aligned}
+\end{equation}
 
 ## Clinical utility
 
